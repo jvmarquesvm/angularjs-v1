@@ -1,0 +1,39 @@
+<div class="well" ng-controller="ListagemAlunosController">
+	<p>Olá, {{nome}} seja bem-vindo ao curso AngularJS</p>
+	
+	<label>Filtrar por Aluno</label>
+	<input type="text" ng-model="filtro">
+	<br>
+	<h2>Alunos Cadastrados usando tabela</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<tr>
+				<th ng-click="ordenarPorNome()">Nome</th>
+				<th ng-click="ordenarPorIdade()">Idade</th>
+			</tr>
+			<tr ng-repeat="aluno in alunos | filter	: filtro">
+				<td>{{aluno.nome}}</td>
+				<td>{{aluno.idade}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<br>
+	
+	<button ng-click="exibeCadastro()" class="btn btn-primary">
+		<span ng-hide="cadastrar">Cadastrar</span>
+		<span ng-show="cadastrar">Ocultar</span>
+	</button>
+
+	<br><br>
+
+	<!-- Utilizando uma diretiva -->
+	<div class="panel panel-primary" ng-if="cadastrar">
+		<div class="panel-heading">
+			<h3 class="panel-title">Novo Cadastro</h3>
+		</div>
+		<div class="panel-body">
+			<cadastro-aluno></cadastro-aluno>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,118 @@
+<html>
+	<!-- View -->
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	</head>
+	<body class="container" ng-app="aplicacao">
+		<div class="header-inner">
+			<h1 style="text-align: center; color: blue">
+				Bem-vindo ao Curso de Desenvolvimento WEB com Angular JS
+			</h1>
+		</div>
+
+		<!-- Barra de Navegação -->
+		<nav class="navbar navbar-default" ng-controller="MenuController">
+			<div class="collapse navbar-collapse" id="menu">
+				<ul class="nav navbar-nav">
+					<li><a ng-click="irInicio()">Início</a></li>
+					<li><a ng-click="irListagem()">Alunos</a></li>
+					<li><a ng-click="irCadastro()">Cadastro</a></li>
+					<li><a ng-click="irPrevisao()">Previsao do Tempo</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--Local onde serão inserido os templates pelo spa -->
+		<div ui-view></div>
+
+		<!-- Trecho abaixo copiado para listagem-alunos.html
+		<div class="well" ng-controller="ListagemAlunosController">
+			<p>Olá, {{nome}} seja bem-vindo ao curso AngularJS</p>
+			
+			<label>Filtrar por Aluno</label>
+			<input type="text" ng-model="filtro">
+			<br>
+			<h2>Alunos Cadastrados usando tabela</h2>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<tr>
+						<th ng-click="ordenarPorNome()">Nome</th>
+						<th ng-click="ordenarPorIdade()">Idade</th>
+					</tr>
+					<tr ng-repeat="aluno in alunos | filter	: filtro">
+						<td>{{aluno.nome}}</td>
+						<td>{{aluno.idade}}</td>
+					</tr>
+				</table>
+			</div>
+		</div> -->
+	
+		<!-- Trecho abaixo copiado para cadastro-aluno.html 
+		<div class="well" ng-controller="NovaInscricaoController">
+			<h1>Inscrição para o Curso</h1>
+			<form name="form_1">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group form-group-deafult">
+							<label>Nome</label>
+							<input class="form-control" type="text" id="nome_aluno" name="nome_aluno" ng-model="nome_aluno" ng-minlength="3" >
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group form-group-deafult">
+							<label>Idade</label>
+							<input class="form-control" type="text" id="idade_aluno" name="idade_aluno" ng-model="idade_aluno" ng-minlength="1">
+						</div>
+				    </div>	
+				</div>
+									
+				<div class="row">
+					<div class="col-md-4">
+						<button ng-click="submeter()" class="btn btn-primary">Adicionar</button>
+					</div>					
+				</div>
+			</form>
+		</div> -->
+
+		<!-- Trecho abaixo copiado para previsao-do-tempo.html
+		<div class="well" ng-controller="PrevisaoTempoController">
+			<h3>Previsão do Tempo</h3>
+			<h2>Chamada de uma API de previsão do tempo</h2>
+			<p>Local: {{tempo.name}},{{tempo.sys.country}}</p>
+			<p>Temperatura: {{tempo.main.temp}} C</p>
+			<p>Temperatura Máxima: {{tempo.main.temp_min}} C</p>
+			<p>Temperatura Mínima: {{tempo.main.temp_max}} C</p>
+			<p></p>
+		</div>
+		-->
+
+		<div class="container-fluid container-fixed-lg footer">
+			<div class="copyright sm-text-center">
+				<p class="small no-margin pull-left sm-pull-reset">
+					<span class="hint-text">Copyright @2019</span>
+				</p>
+			</div>
+		</div>
+
+
+		<!-- Importação de Libs -->
+		<script src="scripts/libs/angular.js"></script>
+		<script src="scripts/libs/bootstrap.js"></script>
+		<script src="scripts/libs/ngResource.js"></script>
+		<script src="scripts/libs/angular-ui-router.js"></script>
+		<!-- Importação do Módulo Principal da Aplicação -->
+		<script src="scripts/app.js"></script>
+		<!-- Importação dos Controllers -->
+		<script src="scripts/previsao-tempo-controller.js"></script>
+		<script src="scripts/listagem-alunos-controller.js"></script>
+		<script src="scripts/nova-inscricao-controller.js"></script>
+		<script src="scripts/menu-controller.js"></script>
+		<!-- Importação dos Services -->
+		<script src="scripts/alunos-collection-service.js"></script>
+		<!-- Importação de Diretivas-->
+		<script src="scripts/cadastro-aluno-directive.js"></script>
+	</body>
+</html>
